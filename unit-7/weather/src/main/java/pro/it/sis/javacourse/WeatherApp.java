@@ -16,7 +16,7 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 @Configuration
 public class WeatherApp {
-	private final Logger logger = LoggerFactory.getLogger(WeatherApp.class);
+	private final Logger logger = LoggerFactory.getLogger(getClass().getCanonicalName());
 
 	public WeatherApp(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
@@ -37,8 +37,8 @@ public class WeatherApp {
 	@PostConstruct
 	@Transactional
 	public void onPostConstruct() {
-		logger.debug("Update DB Scheme");
+		logger.info("Update DB Scheme");
 		jdbcTemplate.update("CREATE TABLE IF NOT EXISTS weather_data (weather text);");
-		logger.debug("Updated successfully");
+		logger.info("Updated successfully");
 	}
 }

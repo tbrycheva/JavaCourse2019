@@ -16,10 +16,7 @@ public class PropertyService {
 	}
 
 	public ZoneId getDefaultTimeZone() {
-		return ZoneId.of(
-				Optional.ofNullable(this.environment.getProperty("weather.ldt.defaultZoneId"))
-						.orElse(DateService.ZONE_UTC));
-
+		return ZoneId.systemDefault();
 	}
 
 	public String getRapidApiHost() {

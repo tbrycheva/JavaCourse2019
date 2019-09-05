@@ -13,7 +13,7 @@ public class Weather {
 	public static Weather fromExternalDTO(WeatherDTO dto) {
 		Weather data = new Weather();
 		data.city = dto.name;
-		data.date = DateService.fromUnixTS(dto.dt);
+		data.date = DateService.fromUTCUnixTS(dto.dt);
 		data.temperature = dto.main.temp;
 		return data;
 	}

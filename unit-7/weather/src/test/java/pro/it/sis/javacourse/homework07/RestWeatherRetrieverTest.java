@@ -25,7 +25,7 @@ public class RestWeatherRetrieverTest {
 	WeatherRetriever weatherRetriever;
 
 	@Test
-	public void weatherTest() {
+	public void weatherTextTest() {
 		String text = weatherRetriever.getWeather("Красноярск").toString();
 		Assert.assertFalse(text.isEmpty());
 		Assert.assertTrue(text.contains("Krasnoyarsk"));

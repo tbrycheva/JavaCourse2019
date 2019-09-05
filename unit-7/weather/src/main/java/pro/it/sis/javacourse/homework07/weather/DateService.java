@@ -9,11 +9,11 @@ public class DateService {
 
 	public static String ZONE_UTC = "UTC";
 
-	public static LocalDateTime fromUnixTS(Long unixTS) {
-		return fromUnixTS(unixTS, ZoneId.of(ZONE_UTC));
+	public static LocalDateTime fromUTCUnixTS(Long unixTS) {
+		return fromUTCUnixTS(unixTS, ZoneId.of(ZONE_UTC));
 	}
 
-	public static LocalDateTime fromUnixTS(Long unixTS, ZoneId zoneId) {
+	public static LocalDateTime fromUTCUnixTS(Long unixTS, ZoneId zoneId) {
 		return LocalDateTime.ofInstant(Instant.ofEpochSecond(unixTS), zoneId);
 	}
 
