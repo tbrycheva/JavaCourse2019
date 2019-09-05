@@ -19,6 +19,10 @@ public class PropertyService {
 		return ZoneId.systemDefault();
 	}
 
+	public String getDefaultCity() {
+		return Optional.ofNullable(this.environment.getProperty("weather.defaultCity")).orElse("krasnoyarsk");
+	}
+
 	public String getRapidApiHost() {
 		return Optional.ofNullable(this.environment.getProperty("x.rapidapi.host"))
 				.orElseThrow(() -> new RuntimeException("RapidApi host not specified."));

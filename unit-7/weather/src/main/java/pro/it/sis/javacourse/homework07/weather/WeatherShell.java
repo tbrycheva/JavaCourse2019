@@ -10,15 +10,17 @@ public class WeatherShell {
 
 	private final WeatherRetriever weatherRetriever;
 	private final WeatherDataService weatherDataService;
+	private final PropertyService propertyService;
 
-	public WeatherShell(WeatherRetriever weatherRetriever, WeatherDataService weatherDataService) {
+	public WeatherShell(WeatherRetriever weatherRetriever, WeatherDataService weatherDataService, PropertyService propertyService) {
 		this.weatherRetriever = weatherRetriever;
 		this.weatherDataService = weatherDataService;
+		this.propertyService = propertyService;
 	}
 
 	@ShellMethod("Get weather by default city.")
 	public String current() {
-		return weather("Красноярск");
+		return weather(propertyService.getDefaultCity());
 	}
 
 	@ShellMethod("Get weather by concrete city.")

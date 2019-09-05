@@ -47,6 +47,7 @@ public class RestWeatherRetriever implements WeatherRetriever {
 			logger.debug("Request completed with result: {}", result);
 		} catch (Exception ex) {
 			logger.error("Error was occurred: " + ex.getLocalizedMessage());
+			throw ex;
 		}
 
 
