@@ -1,13 +1,15 @@
 package com.github.siberianintegrationsystems.restApp.controller.dto;
 
-public class JournalEntityDTO {
-    public String id;
-    public String name;
-    public int defaultPageSize;
+import com.github.siberianintegrationsystems.restApp.entity.Journal;
 
-    public JournalEntityDTO(String id, String name, int defaultPageSize) {
-        this.id = id;
-        this.name = name;
-        this.defaultPageSize = defaultPageSize;
-    }
+public class JournalEntityDTO {
+	public String id;
+	public String name;
+	public Long defaultPageSize;
+
+	public JournalEntityDTO(Journal journal) {
+		this.id = journal.getId();
+		this.name = journal.getName();
+		this.defaultPageSize = journal.getDefaultPageSize();
+	}
 }
